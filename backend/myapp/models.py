@@ -16,7 +16,7 @@ class User(AbstractUser):
     first_name = models.CharField(max_length = 45)
     last_name = models.CharField(max_length = 45)
     email = models.EmailField(unique=True, null=True)
-    bio = models.TextField(max_length=200, null=True)
+    bio = models.TextField(max_length=200, null=True, blank=True)
     profile_picture = models.ImageField(upload_to=profile_picture_path, null=True)
 
 class Artists(models.Model):
