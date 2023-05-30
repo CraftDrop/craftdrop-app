@@ -15,3 +15,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.hero {
+  background: url("/public/images/hero.png") no-repeat;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: overlay;
+  background-size: cover;
+}

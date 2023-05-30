@@ -17,7 +17,7 @@ import { RiMenu4Fill } from "react-icons/ri";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center p-4 bg-black w-full text-sm sm:text-base">
+    <div className="flex justify-between items-center p-4 bg-black w-full text-sm sm:text-base px-4">
       <div className="sm:hidden">
         <Menu>
           {({ isOpen }) => (
@@ -59,41 +59,6 @@ const Navbar = () => {
                   </div>
                   <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
                     Photography
-                  </div>
-                </div>
-
-                {/* Style */}
-                <h1 className="p-2 text-white text-base">Style</h1>
-                <div className="flex gap-4 overflow-x-auto border-b pb-4 border-gray-400">
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Fine Art
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Abstract
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Modern
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Street Art
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Pop Art
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Portraiture
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Conceptual
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Graffiti
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Surreal
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
-                    Wall
                   </div>
                 </div>
 
@@ -151,10 +116,13 @@ const Navbar = () => {
                 </div>
 
                 {/* Subject */}
-                <h1 className="p-2 text-white text-base">Style</h1>
+                <h1 className="p-2 text-white text-base">Subject</h1>
                 <div className="flex gap-4 overflow-x-auto border-b pb-4 border-gray-400">
                   <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
                     Portrait
+                  </div>
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                    Abstract
                   </div>
                   <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
                     Landscape
@@ -250,15 +218,156 @@ const Navbar = () => {
 
       <Logo />
 
-      <ul className="hidden sm:flex gap-4 items-center text-white">
-        <li>Log in</li>
-        <li>Join now</li>
-        <li>Contact Us</li>
-      </ul>
+      <div className=" text-white gap-4 hidden sm:flex">
+        <Menu>
+          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+            Categories
+          </MenuButton>
+          <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded">
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Paintings
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Drawings
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Sculpture
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              AI / Digital
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Collage
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Photography
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Printmaking
+            </MenuItem>
+          </MenuList>
+        </Menu>
 
-      <div className="border rounded-full p-1 border-white text-white">
-        <CiUser className="w-6 h-6 font-light" />
+        <Menu>
+          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+            Subject
+          </MenuButton>
+          <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded">
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Portrait
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Landscape
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Abstract
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Still Life
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Nature
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Graffiti
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Nude
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Love
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Animal
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Fantasy
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Floral
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Cartoon
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Anime
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Architechture
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Geometric
+            </MenuItem>
+          </MenuList>
+        </Menu>
+
+        <Menu>
+          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+            Region
+          </MenuButton>
+          <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded">
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              African Art
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              European Art
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              American Art
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Asian Art
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Middle Eastern Art
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Latin American Art
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              Oceanic Art
+            </MenuItem>
+          </MenuList>
+        </Menu>
+
+        <Menu>
+          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+            Discounts
+          </MenuButton>
+          <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded">
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              10% Off
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              15% Off
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              25% Off
+            </MenuItem>
+            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] px-2">
+              50% Off
+            </MenuItem>
+          </MenuList>
+        </Menu>
+
+        <div>About</div>
       </div>
+
+      <Menu>
+        <MenuButton as={Button}>
+          <div className="border rounded-full p-1 border-white text-white">
+            <CiUser className="w-6 h-6 font-light" />
+          </div>
+        </MenuButton>
+        <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded text-white">
+          <MenuItem className="hover:rounded-2xl hover:bg-[#593A36] p-2">
+            Log in
+          </MenuItem>
+          <MenuItem className="hover:rounded-2xl hover:bg-[#593A36] p-2">
+            Sign up
+          </MenuItem>
+        </MenuList>
+      </Menu>
     </div>
   );
 };
