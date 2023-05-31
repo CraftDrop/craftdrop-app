@@ -13,14 +13,14 @@ def artwork_file_path(instance, filename):
 
 class User(AbstractUser):
     user_id = models.BigAutoField(primary_key=True)
-    first_name = models.CharField(max_length = 45)
-    last_name = models.CharField(max_length = 45)
+    full_name= models.CharField(max_length = 45)
+    username = models.CharField(max_length=45)
     email = models.EmailField(unique=True, null=True)
     bio = models.TextField(max_length=200, null=True, blank=True)
     profile_picture = models.ImageField(upload_to=profile_picture_path, null=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
-    def __str__(self):
-        return [f'email:{self.email}, user_id:{self.user_id}']
 
 class Artists(models.Model):
     artist_id = models.BigAutoField(primary_key=True)
@@ -39,7 +39,7 @@ class Artists(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return [f'artist_id:{self.artist_id}']
+        return f'artist_id:{self.artist_id}'
 class Address(models.Model):
     user_id = models.OneToOneField(User, on_delete=models.CASCADE, related_name='address')
     street = models.CharField(max_length= 45)
@@ -49,7 +49,7 @@ class Address(models.Model):
     zipcode = models.CharField(max_length = 45)
 
     def __str__(self):
-        return [f'user_id:{self.user_id}, country:{self.country}']
+        return f'user_id:{self.user_id}, country:{self.country}'
 
 class Artwork(models.Model):
     artwork_id = models.BigAutoField(primary_key=True)
@@ -74,7 +74,7 @@ class Artwork(models.Model):
         return self.filename.lower().endswith(('.mp4', '.avi', '.mov'))
     
     def __str__(self):
-        return [f'artist_id:{self.artist_id}, artwork_id:{self.artwork_id}']
+        return f'artist_id:{self.artist_id}, artwork_id:{self.artwork_id}'
 
 class Order(models.Model):
     order_id = models.BigAutoField(primary_key=True)
@@ -84,4 +84,4 @@ class Order(models.Model):
     status = None
 
     def __str__(self):
-        return [f'user_id:{self.user_id}, order_id:{self.order_id}']
+        return f'user_id:{self.user_id}, order_id:{self.order_id}'
