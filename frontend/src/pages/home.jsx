@@ -1,4 +1,3 @@
-import { ChakraProvider } from "@chakra-ui/react";
 import "../App.css";
 import Features from "../components/features";
 import Hero from "../components/hero";
@@ -7,14 +6,12 @@ import Navbar from "../components/navbar";
 
 function Home() {
   return (
-    <ChakraProvider>
-      <div className="App bg-black text-white">
-        <Navbar />
-        <Hero />
-        <Info />
-        <Features />
-      </div>
-    </ChakraProvider>
+    <div className="App bg-black text-white">
+      <Navbar />
+      <Hero />
+      <Info />
+      <Features />
+    </div>
   );
 }
 

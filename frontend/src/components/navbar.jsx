@@ -23,8 +23,9 @@ const Navbar = () => {
           {({ isOpen }) => (
             <>
               <MenuButton
+                _active={{ bg: "black" }}
+                _hover={{ bg: "black" }}
                 bg="black"
-                _hover={{ background: "black" }}
                 isActive={isOpen}
                 as={Button}
               >
@@ -37,33 +38,35 @@ const Navbar = () => {
                 </div>
               </MenuButton>
               <MenuList
-                opacity="0"
-                className={`${
-                  isOpen ? "opacity-100" : "opacity-0"
-                } transition-all ease-in-out duration-200 delay-100 bg-gray-600 bg-opacity-75 text-white py-4 px-1 w-screen`}
+                bg="rgba(64, 64, 64, 0.8)"
+                color="white"
+                py="4"
+                px="1"
+                w="screen"
+                className="transition-all ease-in-out duration-200 delay-100 text-white py-4 px-1 w-screen"
               >
                 {/* Categories */}
-                <h1 className="p-2 text-black text-base">Categories</h1>
-                <div className="flex gap-4 overflow-x-auto border-b pb-4 border-gray-400">
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                <h1 className="p-2 text-base">Categories</h1>
+                <div className="flex gap-4 overflow-x-auto border-b pb-4 border-gray-400 pt-1">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Paintings
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Drawings
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Sculpture
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     AI / Digital
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Collage
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Printmaking
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Photography
                   </div>
                 </div>
@@ -71,52 +74,52 @@ const Navbar = () => {
                 {/* Medium */}
                 <h1 className="p-2 text-white text-base">Medium</h1>
                 <div className="flex gap-4 overflow-x-auto border-b pb-4 border-gray-400">
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Oil
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Charcoal
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Pencil
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Black & White
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     C-Type
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Watercolor
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Acrylic
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Pastel
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Ink
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Airbrush
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Digital
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Metal
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Bronze
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Clay
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Glass
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Wood
                   </div>
                 </div>
@@ -124,52 +127,52 @@ const Navbar = () => {
                 {/* Subject */}
                 <h1 className="p-2 text-white text-base">Subject</h1>
                 <div className="flex gap-4 overflow-x-auto border-b pb-4 border-gray-400">
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Portrait
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Abstract
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Landscape
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Still Life
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Nature
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Nude
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Animal
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Love
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Fantasy
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Floral
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Fashion
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Cartoon
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Anime
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Body
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Architechture
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Geometric
                   </div>
                 </div>
@@ -177,25 +180,25 @@ const Navbar = () => {
                 {/* Region */}
                 <h1 className="p-2 text-white text-base">Region</h1>
                 <div className="flex gap-4 overflow-x-auto border-b pb-4 border-gray-400">
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     African Art
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     European Art
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     American Art
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Asian Art
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Middle Eastern Art
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Latin American Art
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Oceanic Art
                   </div>
                 </div>
@@ -203,16 +206,16 @@ const Navbar = () => {
                 {/* Discount */}
                 <h1 className="p-2 text-white text-base">Discount</h1>
                 <div className="flex gap-4 overflow-x-auto border-b pb-4 border-gray-400">
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     10% Off
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     15% Off
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     25% Off
                   </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724]">
+                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     50% Off
                   </div>
                 </div>
@@ -224,156 +227,210 @@ const Navbar = () => {
 
       <Logo />
 
-      {/* <div className=" text-white gap-4 hidden sm:flex">
-        <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            Categories
+      <div className=" text-white gap-4 hidden sm:flex items-center">
+        <Menu bg="black" _active={{ bg: "black" }}>
+          <MenuButton
+            _active={{ bg: "black" }}
+            _hover={{ bg: "black" }}
+            bg="black"
+            as={Button}
+          >
+            <span className="text-white">Categories</span>
           </MenuButton>
-          <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded">
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] hover:border-black hover:border px-2">
-              Paintings
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] hover:border-black hover:border px-2">
-              Drawings
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] hover:border-black hover:border px-2">
-              Sculpture
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] hover:border-black hover:border px-2">
-              AI / Digital
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] hover:border-black hover:border px-2">
-              Collage
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] hover:border-black hover:border px-2">
-              Photography
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36] hover:border-black hover:border px-2">
-              Printmaking
-            </MenuItem>
+          <MenuList
+            className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
+            bg=""
+          >
+            <a href="">
+              <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                Paintings
+              </div>
+            </a>
+            <a href="">
+              <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                Drawings
+              </div>
+            </a>
+            <a href="">
+              <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                Sculpture
+              </div>
+            </a>
+            <a href="">
+              <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                AI / Digital
+              </div>
+            </a>
+            <a href="">
+              <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                Collage
+              </div>
+            </a>
+            <a href="">
+              <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                Photography
+              </div>
+            </a>
+            <a href="">
+              <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                Printmaking
+              </div>
+            </a>
           </MenuList>
         </Menu>
 
         <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            Subject
+          <MenuButton
+            _active={{ bg: "black" }}
+            _hover={{ bg: "black" }}
+            bg="black"
+            as={Button}
+          >
+            <span className="text-white">Subject</span>
           </MenuButton>
-          <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded">
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+          <MenuList
+            className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
+            bg=""
+          >
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Portrait
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Landscape
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Abstract
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Still Life
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Nature
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Graffiti
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Nude
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Love
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Animal
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Fantasy
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Floral
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Cartoon
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Anime
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Architechture
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Geometric
-            </MenuItem>
+            </div>
           </MenuList>
         </Menu>
 
         <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            Region
+          <MenuButton
+            _active={{ bg: "black" }}
+            _hover={{ bg: "black" }}
+            bg="black"
+            as={Button}
+          >
+            <span className="text-white">Region</span>
           </MenuButton>
-          <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded">
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+          <MenuList
+            className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
+            bg=""
+          >
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               African Art
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               European Art
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               American Art
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Asian Art
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Middle Eastern Art
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Latin American Art
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               Oceanic Art
-            </MenuItem>
+            </div>
           </MenuList>
         </Menu>
 
         <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            Discounts
+          <MenuButton
+            _active={{ bg: "black" }}
+            _hover={{ bg: "black" }}
+            bg="black"
+            as={Button}
+          >
+            <span className="text-white">Discounts</span>
           </MenuButton>
-          <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded">
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+          <MenuList
+            className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
+            bg=""
+          >
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               10% Off
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               15% Off
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               25% Off
-            </MenuItem>
-            <MenuItem className="hover:rounded-xl hover:bg-[#593A36]  px-2">
+            </div>
+            <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
               50% Off
-            </MenuItem>
+            </div>
           </MenuList>
         </Menu>
 
         <div>About</div>
-      </div> */}
+      </div>
 
-      {/* <Menu>
-        <MenuButton _hover={{ background: "black" }} bg="black" as={Button}>
+      <Menu>
+        <MenuButton
+          _active={{ bg: "black" }}
+          _hover={{ bg: "black" }}
+          bg="black"
+          as={Button}
+        >
           <div className="border rounded-full p-1 border-white text-white">
             <CiUser className="w-6 h-6 font-light" />
           </div>
         </MenuButton>
-        <MenuList className="bg-gray-600 bg-opacity-75 p-2 rounded text-white">
-          <MenuItem className="hover:rounded-2xl hover:bg-[#593A36]  p-2">
+        <MenuList
+          className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
+          bg=""
+        >
+          <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
             Log in
-          </MenuItem>
-          <MenuItem className="hover:rounded-2xl hover:bg-[#593A36]  p-2">
+          </div>
+          <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
             Sign up
-          </MenuItem>
+          </div>
         </MenuList>
-      </Menu> */}
+      </Menu>
     </div>
   );
 };
