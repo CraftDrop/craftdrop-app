@@ -1,50 +1,16 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Image,
-  Stack,
-  Heading,
-  Text,
-  Divider,
-  Button,
-  ButtonGroup,
-} from "@chakra-ui/react";
-
-const ArtCard = () => {
+const ArtCard = ({ artData }) => {
+  const { title, medium, price, image } = artData;
   return (
-    <Card maxW="sm">
-      <CardBody className="w-[10rem]">
-        <Image
-          src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-          alt="Green double couch with wooden legs"
-          borderRadius="lg"
-        />
-        <Stack mt="6" spacing="3">
-          <Heading size="md">Living room Sofa</Heading>
-          <Text>
-            This sofa is perfect for modern tropical spaces, baroque inspired
-            spaces, earthy toned spaces and for people who love a chic design
-            with a sprinkle of vintage design.
-          </Text>
-          <Text color="blue.600" fontSize="2xl">
-            $450
-          </Text>
-        </Stack>
-      </CardBody>
-      <Divider />
-      <CardFooter>
-        <ButtonGroup spacing="2">
-          <Button variant="solid" colorScheme="blue">
-            Buy now
-          </Button>
-          <Button variant="ghost" colorScheme="blue">
-            Add to cart
-          </Button>
-        </ButtonGroup>
-      </CardFooter>
-    </Card>
+    <div className="flex flex-col gap-4 items-center rounded-lg relative w-[20rem] transform transition hover:scale-105 ease-in-out duration-500 overflow-hidden">
+      <div className=" rounded-lg">
+        <img className=" h-[20rem] object-cover" src={image} alt="" />
+      </div>
+      <div className="flex flex-col absolute bottom-0 bg-gray-400 w-full bg-opacity-30 px-4">
+        <h1 className="font-bold">{title}</h1>
+        <div className="italic text-sm">{medium}</div>
+        <div className="font-bold">{price}</div>
+      </div>
+    </div>
   );
 };
 

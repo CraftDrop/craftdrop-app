@@ -1,0 +1,272 @@
+[
+  {
+    "name": "Adrian Cole",
+    "image": "images/01.jpeg",
+    "region": "Africa",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "adrian@craftdrop.io",
+    "rating": 3.1,
+    "sales": 247
+  },
+  {
+    "name": "Maxwell Fox",
+    "image": "images/02.jpeg",
+    "region": "Australia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "maxwell@craftdrop.io",
+    "rating": 2.1,
+    "sales": 76
+  },
+  {
+    "name": "Caleb Reid",
+    "image": "images/03.jpeg",
+    "region": "Europe",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "caleb@craftdrop.io",
+    "rating": 3.9,
+    "sales": 116
+  },
+  {
+    "name": "Micah Bryant",
+    "image": "images/04.jpeg",
+    "region": "South America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "micah@craftdrop.io",
+    "rating": 4.1,
+    "sales": 528
+  },
+  {
+    "name": "Levi Lawson",
+    "image": "images/05.jpeg",
+    "region": "Africa",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "levi@craftdrop.io",
+    "rating": 3,
+    "sales": 312
+  },
+  {
+    "name": "Eliana Parker",
+    "image": "images/06.jpeg",
+    "region": "Europe",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "eliana@craftdrop.io",
+    "rating": 3.7,
+    "sales": 445
+  },
+  {
+    "name": "Ivy Foster",
+    "image": "images/07.jpeg",
+    "region": "Asia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "ivy@craftdrop.io",
+    "rating": 4,
+    "sales": 241
+  },
+  {
+    "name": "Adrian Cole",
+    "image": "images/08.jpeg",
+    "region": "Australia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "adrian@craftdrop.io",
+    "rating": 2.9,
+    "sales": 571
+  },
+  {
+    "name": "Grace Turner",
+    "image": "images/09.jpeg",
+    "region": "Asia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "grace@craftdrop.io",
+    "rating": 4.3,
+    "sales": 511
+  },
+  {
+    "name": "Elena Rivers",
+    "image": "images/010.jpeg",
+    "region": "Africa",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "elena@craftdrop.io",
+    "rating": 4.5,
+    "sales": 362
+  },
+  {
+    "name": "Elena Rivers",
+    "image": "images/11.jpeg",
+    "region": "North America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "elena@craftdrop.io",
+    "rating": 1.6,
+    "sales": 10
+  },
+  {
+    "name": "Maxwell Fox",
+    "image": "images/12.jpeg",
+    "region": "Australia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "maxwell@craftdrop.io",
+    "rating": 4.6,
+    "sales": 17
+  },
+  {
+    "name": "Grace Turner",
+    "image": "images/13.jpeg",
+    "region": "Asia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "grace@craftdrop.io",
+    "rating": 1.5,
+    "sales": 156
+  },
+  {
+    "name": "Adrian Cole",
+    "image": "images/14.jpeg",
+    "region": "North America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "adrian@craftdrop.io",
+    "rating": 4.8,
+    "sales": 392
+  },
+  {
+    "name": "Noah Brooks",
+    "image": "images/15.jpeg",
+    "region": "North America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "noah@craftdrop.io",
+    "rating": 1.1,
+    "sales": 441
+  },
+  {
+    "name": "Maxwell Fox",
+    "image": "images/16.jpeg",
+    "region": "Asia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "maxwell@craftdrop.io",
+    "rating": 1.5,
+    "sales": 176
+  },
+  {
+    "name": "Levi Lawson",
+    "image": "images/17.jpeg",
+    "region": "South America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "levi@craftdrop.io",
+    "rating": 2,
+    "sales": 265
+  },
+  {
+    "name": "Aria Sullivan",
+    "image": "images/18.jpeg",
+    "region": "Asia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "aria@craftdrop.io",
+    "rating": 2.9,
+    "sales": 328
+  },
+  {
+    "name": "Ivy Foster",
+    "image": "images/19.jpeg",
+    "region": "Australia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "ivy@craftdrop.io",
+    "rating": 3.5,
+    "sales": 516
+  },
+  {
+    "name": "Luna Adams",
+    "image": "images/20.jpeg",
+    "region": "Africa",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "luna@craftdrop.io",
+    "rating": 4.3,
+    "sales": 77
+  },
+  {
+    "name": "Scarlett Campbell",
+    "image": "images/21.jpeg",
+    "region": "South America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "scarlett@craftdrop.io",
+    "rating": 1.6,
+    "sales": 213
+  },
+  {
+    "name": "Maxwell Fox",
+    "image": "images/22.jpeg",
+    "region": "Asia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "maxwell@craftdrop.io",
+    "rating": 3.5,
+    "sales": 319
+  },
+  {
+    "name": "Levi Lawson",
+    "image": "images/23.jpeg",
+    "region": "Europe",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "levi@craftdrop.io",
+    "rating": 4.3,
+    "sales": 279
+  },
+  {
+    "name": "Aria Sullivan",
+    "image": "images/24.jpeg",
+    "region": "North America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "aria@craftdrop.io",
+    "rating": 2.9,
+    "sales": 528
+  },
+  {
+    "name": "Aurora Simmons",
+    "image": "images/25.jpeg",
+    "region": "North America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "aurora@craftdrop.io",
+    "rating": 1,
+    "sales": 240
+  },
+  {
+    "name": "Stella Gray",
+    "image": "images/26.jpeg",
+    "region": "Europe",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "stella@craftdrop.io",
+    "rating": 4.5,
+    "sales": 100
+  },
+  {
+    "name": "Grace Turner",
+    "image": "images/27.jpeg",
+    "region": "North America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "grace@craftdrop.io",
+    "rating": 3.8,
+    "sales": 83
+  },
+  {
+    "name": "Ivy Foster",
+    "image": "images/28.jpeg",
+    "region": "North America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "ivy@craftdrop.io",
+    "rating": 1.6,
+    "sales": 93
+  },
+  {
+    "name": "Luna Adams",
+    "image": "images/29.jpeg",
+    "region": "Asia",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "luna@craftdrop.io",
+    "rating": 3.9,
+    "sales": 16
+  },
+  {
+    "name": "Scarlett Campbell",
+    "image": "images/30.jpeg",
+    "region": "North America",
+    "bio": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique odit sit unde veniam repellat facilis excepturi cum, aspernatur at! Iure, sapiente. Quasi tempore excepturi enim saepe, rerum distinctio ea eius!",
+    "email": "scarlett@craftdrop.io",
+    "rating": 3.7,
+    "sales": 400
+  }
+]

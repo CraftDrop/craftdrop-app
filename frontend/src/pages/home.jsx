@@ -3,6 +3,7 @@ import Features from "../components/features";
 import Hero from "../components/hero";
 import Info from "../components/info";
 import Navbar from "../components/navbar";
+import Trending from "../components/trending";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Hero />
       <Info />
       <Features />
+      <Trending />
     </div>
   );
 }

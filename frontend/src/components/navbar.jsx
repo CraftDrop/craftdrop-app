@@ -1,19 +1,8 @@
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-  Button,
-  VisuallyHidden,
-} from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, Button } from "@chakra-ui/react";
 import Logo from "./logo";
 import { CiUser } from "react-icons/ci";
 import { RiMenu4Fill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -241,41 +230,41 @@ const Navbar = () => {
             className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
             bg=""
           >
-            <a href="">
+            <Link href="">
               <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
                 Paintings
               </div>
-            </a>
-            <a href="">
+            </Link>
+            <Link href="">
               <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
                 Drawings
               </div>
-            </a>
-            <a href="">
+            </Link>
+            <Link href="">
               <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
                 Sculpture
               </div>
-            </a>
-            <a href="">
+            </Link>
+            <Link href="">
               <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
                 AI / Digital
               </div>
-            </a>
-            <a href="">
+            </Link>
+            <Link href="">
               <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
                 Collage
               </div>
-            </a>
-            <a href="">
+            </Link>
+            <Link href="">
               <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
                 Photography
               </div>
-            </a>
-            <a href="">
+            </Link>
+            <Link href="">
               <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
                 Printmaking
               </div>
-            </a>
+            </Link>
           </MenuList>
         </Menu>
 
