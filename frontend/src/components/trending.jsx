@@ -1,5 +1,3 @@
-import artData from "../testData/artData.json";
-import artistsData from "../testData/artistsData.json";
 import Pagination from "./common/pagination";
 import { paginate } from "../utils/paginate";
 
@@ -24,7 +22,7 @@ import ButtonPrimary from "./common/button";
 import { useState } from "react";
 import ArtThumbnail from "./common/artThumbnail";
 
-const Trending = () => {
+const Trending = ({ artData, artistsData }) => {
   const [artPageNumber, setArtPageNumber] = useState(1);
   const [artistPageNumber, setArtistPageNumber] = useState(1);
   const { newData: newArtData, totalPages: totalArtPages } = paginate(
