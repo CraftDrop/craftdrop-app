@@ -394,7 +394,7 @@ const Navbar = () => {
           </MenuList>
         </Menu>
 
-        <div>About</div>
+        <div className="font-semibold">About</div>
       </div>
 
       <Menu>

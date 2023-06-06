@@ -7,7 +7,11 @@ const ArtCard = ({ artData }) => {
       </div>
       <div className="flex flex-col absolute bottom-0 bg-gray-400 w-full bg-opacity-30 px-4">
         <h1 className="font-bold">{title}</h1>
-        <div className="italic text-sm">{medium}</div>
+        {medium ? (
+          <div className="italic text-sm">{medium}</div>
+        ) : (
+          <h1 className="font-bold h-4"></h1>
+        )}
         <div className="font-bold">{price}</div>
       </div>
     </div>

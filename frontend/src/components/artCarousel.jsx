@@ -3,7 +3,7 @@ import useScrollCarousel from "./useScrollCarousel";
 import ArtCard from "./common/artCard";
 import { GrNext, GrPrevious } from "react-icons/gr";
 
-const Features = ({ label, data }) => {
+const ArtCarousel = ({ label, data }) => {
   const {
     containerRef,
     handleScroll,
@@ -53,4 +53,4 @@ const Features = ({ label, data }) => {
   );
 };
 
-export default Features;
+export default ArtCarousel;

@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Paintings",
+    "image": "./images/painting.jpeg"
+  },
+  {
+    "title": "Drawings",
+    "image": "./images/dawing.jpeg"
+  },
+
+  {
+    "title": "Sculpture",
+    "image": "./images/sculpting.png"
+  },
+  {
+    "title": "AI / Digital Art",
+    "image": "./images/7.png"
+  },
+  {
+    "title": "Collage",
+    "image": "./images/collage.jpeg"
+  },
+  {
+    "title": "Graffiti",
+    "image": "./images/graffiti.png "
+  },
+  {
+    "title": "Photography",
+    "image": "./images/photography.png"
+  },
+  {
+    "title": "Printmaking",
+    "image": "./images/printmaking.jpeg"
+  },
+  {
+    "title": "Abstract",
+    "image": "./images/abstract.jpeg"
+  },
+  {
+    "title": "Nude",
+    "image": "./images/nude.png"
+  }
+]
