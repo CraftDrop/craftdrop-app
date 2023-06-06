@@ -1,5 +1,5 @@
 import React from "react";
-import useScrollCarousel from "./useScrollCarousel";
+import useScrollCarousel from "../utils/useScrollCarousel";
 import ArtCard from "./common/artCard";
 import { GrNext, GrPrevious } from "react-icons/gr";
 

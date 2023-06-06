@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useScrollCarousel from "./useScrollCarousel";
+import useScrollCarousel from "../utils/useScrollCarousel";
 import { GrNext, GrPrevious } from "react-icons/gr";
 
 const NavCarousel = ({ label }) => {
