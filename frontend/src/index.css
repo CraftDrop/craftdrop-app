@@ -17,7 +17,7 @@ code {
 }
 
 .hero {
-  background: url("/public/images/hero.png") no-repeat;
+  background: url("/public/images/hero.jpg") no-repeat;
   background-color: rgba(0, 0, 0, 0.7);
   background-blend-mode: overlay;
   background-size: cover;
