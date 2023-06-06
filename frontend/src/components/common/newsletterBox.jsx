@@ -13,7 +13,7 @@ const NewsletterBox = () => {
       </div>
       <div className="flex items-center gap-4">
         <div>
-          <Input placeholder="large size" size="lg" />
+          <Input placeholder="Enter email" size="lg" />
         </div>
         <div className="flex-grow-0 flex-shrink-0">
           <ButtonPrimary label="Sign Up" />
