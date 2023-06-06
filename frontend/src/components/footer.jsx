@@ -10,8 +10,8 @@ const Footer = () => {
           Buy, sell, and discover exclusive artworks.
         </span>
       </div>
-      <div className="flex items-center justify-between lg:justify-around">
-        <div className="flex flex-col gap-2 items-start">
+      <div className="flex justify-between lg:justify-around items-start">
+        <div className="flex flex-col gap-2 items-center lg:items-start">
           <h1 className="font-bold">Marketplace</h1>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
             All Artworks
@@ -32,70 +32,64 @@ const Footer = () => {
             By Artist
           </button>
         </div>
-        <div className="flex flex-col gap-2 items-start">
+        <div className="flex flex-col gap-2 items-center lg:items-start">
           <h1 className="font-bold">For Artists</h1>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            All Artworks
+            Apply now
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Medium
+            Why join CraftDrop?
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Subject
+            FAQs
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Region
+            Artist Support
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Discount
-          </button>
-          <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Artist
+            Terms & Conditions
           </button>
         </div>
       </div>
 
-      <div className="flex items-center justify-between lg:justify-around">
-        <div className="flex flex-col gap-2 items-start">
+      <div className="flex items-start justify-between lg:justify-around">
+        <div className="flex flex-col gap-2 items-center lg:items-start">
           <h1 className="font-bold">For Buyers</h1>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            All Artworks
+            Commision an Artwork
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Medium
+            Personal Shopping
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Subject
+            Find the Perfect Gift
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Region
+            Customer Support
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Discount
+            Returns & Refunds
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Artist
+            FAQs
           </button>
         </div>
-        <div className="flex flex-col gap-2 items-start">
-          <h1 className="font-bold">Marketplace</h1>
+        <div className="flex flex-col gap-2 items-center lg:items-start">
+          <h1 className="font-bold">Company</h1>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            All Artworks
+            About
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Medium
+            Blog
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Subject
+            Careers
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Region
+            Contact
           </button>
           <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Discount
-          </button>
-          <button className="transition ease-in-out duration-300 hover:scale-101 hover:font-semibold">
-            By Artist
+            Privacy Policy
           </button>
         </div>
       </div>
