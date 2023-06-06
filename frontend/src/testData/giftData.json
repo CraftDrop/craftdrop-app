@@ -1,0 +1,28 @@
+[
+  {
+    "title": "For Him",
+    "artist": "Levi Lawson",
+    "image": "./images/for-him.png"
+  },
+  {
+    "title": "For Her",
+    "artist": "Levi Lawson",
+    "image": "./images/for-her.jpeg"
+  },
+
+  {
+    "title": "For Family",
+    "artist": "Levi Lawson",
+    "image": "./images/family.jpeg"
+  },
+  {
+    "title": "For Kids",
+    "artist": "Levi Lawson",
+    "image": "./images/kids.png"
+  },
+  {
+    "title": "For a Colleague",
+    "artist": "Levi Lawson",
+    "image": "./images/colleague.jpeg"
+  }
+]
