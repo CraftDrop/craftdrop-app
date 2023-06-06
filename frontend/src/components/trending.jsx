@@ -18,7 +18,7 @@ import {
   Td,
   TableContainer,
 } from "@chakra-ui/react";
-import ButtonPrimary from "./common/button";
+import ButtonPrimary from "./common/buttonPrimary";
 import { useState } from "react";
 import ArtThumbnail from "./common/artThumbnail";
 

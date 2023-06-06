@@ -6,6 +6,8 @@ import Navbar from "../components/navbar";
 import Trending from "../components/trending";
 import artData from "../testData/artData.json";
 import artistsData from "../testData/artistsData.json";
+import CustomArtBanner from "../components/customArtBanner";
+import Footer from "../components/footer";
 
 function Home() {
   return (
@@ -14,8 +16,10 @@ function Home() {
       <Hero />
       <Info />
       <Features label="Featured" data={artData} />
+      <bbCustomArtBanner />
       <Trending artData={artData} artistsData={artistsData} />
       <Features label="Notable Collections" data={artData} />
+      <Footer />
     </div>
   );
 }

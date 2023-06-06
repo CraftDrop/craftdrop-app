@@ -1,4 +1,4 @@
-import ButtonPrimary from "./button";
+import ButtonPrimary from "./buttonPrimary";
 
 const Pagination = ({ nextPage, prevPage, name }) => {
   return (
