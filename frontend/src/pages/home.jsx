@@ -11,10 +11,12 @@ import CustomArtBanner from "../components/customArtBanner";
 import ArtCarousel from "../components/artCarousel";
 import FeatureCarousel from "../components/featureCarousel";
 import Layout from "../layout";
+import NavCarousel from "../components/navCarousel";
 
 function Home() {
   return (
     <Layout>
+      <NavCarousel />
       <Hero />
       <Info />
       <FeatureCarousel label="Featured" data={artData} />

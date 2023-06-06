@@ -6,11 +6,24 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/home";
+import Category, { loader as rootLoader } from "./pages/category";
+import FeatureCarousel from "./components/featureCarousel";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/category",
+    element: <Category />,
+    loader: rootLoader,
+    children: [
+      {
+        path: "/category/:category",
+        element: <FeatureCarousel />,
+      },
+    ],
   },
 ]);
 

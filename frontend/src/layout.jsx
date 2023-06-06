@@ -4,7 +4,7 @@ import Footer from "./components/footer";
 
 const Layout = ({ children }) => {
   return (
-    <div className="App bg-black text-white flex flex-col gap-8">
+    <div className="App bg-black text-white flex flex-col gap-4">
       <Navbar />
       {children}
       <Footer />

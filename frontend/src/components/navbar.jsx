@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center p-4 bg-black w-full text-sm sm:text-base px-4">
+    <div className="flex justify-between items-center p-4 bg-black w-full text-sm sm:text-base px-4 border-b-2 border-gray-600">
       <div className="sm:hidden">
         <Menu>
           {({ isOpen }) => (
