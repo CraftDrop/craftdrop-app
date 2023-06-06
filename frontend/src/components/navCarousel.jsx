@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useScrollCarousel from "../utils/useScrollCarousel";
-import { GrNext, GrPrevious } from "react-icons/gr";
 
 const NavCarousel = ({ label }) => {
   const [active, setIsActive] = useState(false);
@@ -21,13 +20,7 @@ const NavCarousel = ({ label }) => {
     "Photography",
     "Printmaking",
   ];
-  const {
-    containerRef,
-    handleScroll,
-    scrollPosition,
-    scrollToNext,
-    scrollToPrevious,
-  } = useScrollCarousel();
+  const { containerRef, handleScroll } = useScrollCarousel();
 
   return (
     <div className="flex flex-col">
