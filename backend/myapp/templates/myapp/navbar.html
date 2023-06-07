@@ -21,6 +21,12 @@
         <a class="navbar-link" href="{% url 'login' %}">Login</a>
         <a class="navbar-link" href="{% url 'register' %}">Register</a>
       {% endif %}
+
+      {% if messages %}
+        {% for message in messages %}
+          <h3>{{message}}</h3>
+        {% endfor %}
+      {% endif %}
     </div>
   </nav>
   

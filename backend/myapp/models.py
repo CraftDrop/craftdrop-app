@@ -14,14 +14,17 @@ def artwork_file_path(instance, filename):
 class User(AbstractUser):
     user_id = models.BigAutoField(primary_key=True)
     full_name= models.CharField(max_length = 45)
-    username = models.CharField(max_length=45)
-    email = models.EmailField(unique=True, null=True)
+    username = models.CharField(unique=True, max_length=45)
+    email = models.EmailField(unique=True, null=False)
     bio = models.TextField(max_length=200, null=True, blank=True)
-    profile_picture = models.ImageField(upload_to=profile_picture_path, null=True)
+    profile_picture = models.ImageField(upload_to=profile_picture_path, null=True, blank=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
-
+    # @property
+    # def id(self):
+    #     return self.user_id
+    
 class Artists(models.Model):
     artist_id = models.BigAutoField(primary_key=True)
     user_id = models.OneToOneField(User, on_delete=models.CASCADE, related_name='artist')
@@ -40,6 +43,7 @@ class Artists(models.Model):
 
     def __str__(self):
         return f'artist_id:{self.artist_id}'
+    
 class Address(models.Model):
     user_id = models.OneToOneField(User, on_delete=models.CASCADE, related_name='address')
     street = models.CharField(max_length= 45)

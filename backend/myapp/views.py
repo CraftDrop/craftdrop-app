@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from .models import User, Order, Address, Artists, Artwork
 from .forms import MyUserCreationForm
 
@@ -66,3 +69,10 @@ def registerPage(request):
         else:
             messages.error(request, 'An error occured during registeration')
     return render(request, 'myapp/login.html', {'form':form})
+
+@api_view(['GET'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def private_view(request):
+    user = request.user
+    return JsonResponse({'message': 'success', 'user': user.username})
