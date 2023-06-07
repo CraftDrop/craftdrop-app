@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraftDrop</title>
+</head>
+<body>
+    {% include 'navbar.html'  %}
+    <h1>Welcome home</h1>
+    <div>
+        {% for post in posts %}
+        <h2>{{ post.title }} by {{ post.author }}</h2>
+        <h3>To be announced in the {{ post.date }}</h3>
+        <hr/>
+        {% endfor %}
+    </div>
+</body>
+</html>
