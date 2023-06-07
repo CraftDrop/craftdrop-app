@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import authenticate,login, logout
 from myapp.models import User, Artists
 from myapp.forms import MyUserCreationForm
@@ -24,9 +24,33 @@ from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET'])
 def api_home(request):
-    print(request.GET)
-    print(request.POST)
-    return Response('Message: Welcome to api tutorials')
+    # print(request.GET)
+    # print(request.POST)
+    message = """
+                <h1> Craftdrop.io API endpoints </h1>
+                <hr>
+                <p> GET /api/  => displays the list of available API endpoints and request methods allowed </p>
+
+                <p> GET /api/user/ => fetches the user info [uses token authentication] </p>
+
+                <p> GET /api/users/ => fetches users info [info is limited] </p>
+
+                <p> GET /api/artist/ => Returns all artists available </p>
+
+                <p> POST /api/register/ => registers user and returns access and refresh_tokens in json format </p>
+
+                <p> POST /api/token/ => generates new jwt tokens [reqires login credentials] </p>
+
+                <p> POST /api/token/refresh/ => refreshes access token [requires the user valid refresh token] </p>
+
+                <p> POST /api/create_artist/ => creates an artist [requires user to be logged in = needs access token for validation] </P>
+
+                <p> POST /api/logout/ => logs user out [requires the refresh token]
+
+
+
+    """
+    return HttpResponse(message)
 
 @api_view(['GET'])
 def UserApi(request, pk=None, *args, **kwargs):
@@ -78,6 +102,21 @@ def login_api(request):
 
     # return Response({'access_token': access_token})
     return Response(generate_tokens(user))
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def logout_api(request):
+    # Perform logout actions
+    try:
+        refresh_token = request.data["refresh_token"]
+        token = RefreshToken(refresh_token)
+        token.blacklist()
+    except KeyError:
+        return Response({"error": "Refresh token is missing"}, status=400)
+    except Exception:
+        return Response({"error": "Invalid refresh token"}, status=400)
+
+    return Response({"message": "Logout successful"}, status=200)
 
 
 @api_view(['POST'])
