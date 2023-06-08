@@ -26,8 +26,8 @@ const FeatureCarousel = ({ label, data }) => {
         className="flex overflow-x-auto gap-8 py-8 px-8 items-center"
         onScroll={handleScroll}
       >
-        {data.map((item) => (
-          <div key={item.id} className="flex-grow-0 flex-shrink-0">
+        {data.map((item, index) => (
+          <div key={index} className="flex-grow-0 flex-shrink-0">
             <ArtCard artData={item} />
           </div>
         ))}
