@@ -1,0 +1,32 @@
+<nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-logo" href="{% url 'home' %}">CraftDrop</a>
+    </div>
+    <ul class="navbar-menu">
+      <li class="navbar-item">
+        <a class="navbar-link" href="#">Artworks</a>
+      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="#">Artists</a>
+      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" href="#">Cart</a>
+      </li>
+    </ul>
+    <div class="navbar-login">
+      {% if user.is_authenticated %}
+        <span class="navbar-username">{{ user.username }}</span>
+        <a class="navbar-link" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+        <a class="navbar-link" href="{% url 'login' %}">Login</a>
+        <a class="navbar-link" href="{% url 'register' %}">Register</a>
+      {% endif %}
+
+      {% if messages %}
+        {% for message in messages %}
+          <h3>{{message}}</h3>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </nav>
+  

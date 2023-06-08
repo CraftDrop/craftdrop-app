@@ -12,15 +12,21 @@ def artwork_file_path(instance, filename):
 
 
 class User(AbstractUser):
-    user_id = models.IntegerField(primary_key=True)
-    first_name = models.CharField(max_length = 45)
-    last_name = models.CharField(max_length = 45)
-    email = models.EmailField(unique=True, null=True)
+    user_id = models.BigAutoField(primary_key=True)
+    full_name= models.CharField(max_length = 45)
+    username = models.CharField(unique=True, max_length=45)
+    email = models.EmailField(unique=True, null=False)
     bio = models.TextField(max_length=200, null=True, blank=True)
-    profile_picture = models.ImageField(upload_to=profile_picture_path, null=True)
+    profile_picture = models.ImageField(upload_to=profile_picture_path, null=True, blank=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
+    # @property
+    # def id(self):
+    #     return self.user_id
+    
 class Artists(models.Model):
-    artist_id = models.IntegerField(primary_key=True)
+    artist_id = models.BigAutoField(primary_key=True)
     user_id = models.OneToOneField(User, on_delete=models.CASCADE, related_name='artist')
     location = models.CharField(max_length=45)
     style = models.CharField(max_length=45)
@@ -35,6 +41,9 @@ class Artists(models.Model):
             self.user_id.save()
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return f'artist_id:{self.artist_id}'
+    
 class Address(models.Model):
     user_id = models.OneToOneField(User, on_delete=models.CASCADE, related_name='address')
     street = models.CharField(max_length= 45)
@@ -43,8 +52,11 @@ class Address(models.Model):
     country = models.CharField(max_length = 45)
     zipcode = models.CharField(max_length = 45)
 
+    def __str__(self):
+        return f'user_id:{self.user_id}, country:{self.country}'
+
 class Artwork(models.Model):
-    artwork_id = models.IntegerField(primary_key=True)
+    artwork_id = models.BigAutoField(primary_key=True)
     artist_id = models.ForeignKey(Artists, on_delete=models.CASCADE, related_name='artworks')
     title = models.CharField(max_length = 45)
     description = models.TextField(null=True, blank=True)
@@ -64,10 +76,16 @@ class Artwork(models.Model):
     def is_video(self):
         #Checks if file is a video
         return self.filename.lower().endswith(('.mp4', '.avi', '.mov'))
+    
+    def __str__(self):
+        return f'artist_id:{self.artist_id}, artwork_id:{self.artwork_id}'
 
 class Order(models.Model):
-    order_id = models.IntegerField(primary_key=True)
+    order_id = models.BigAutoField(primary_key=True)
     artwork_id = models.ForeignKey(Artwork, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     date_ordered = models.DateTimeField(auto_now_add=True)
     status = None
+
+    def __str__(self):
+        return f'user_id:{self.user_id}, order_id:{self.order_id}'
