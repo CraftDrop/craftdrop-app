@@ -147,16 +147,10 @@ const Navbar = () => {
                     Floral
                   </div>
                   <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
-                    Fashion
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Cartoon
                   </div>
                   <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Anime
-                  </div>
-                  <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
-                    Body
                   </div>
                   <div className="bg-black rounded-3xl py-2 px-4 flex-shrink-0 flex-grow-0 hover:bg-[#593A36] active:hover:bg-[#3c2724] hover:border-black active:border-black border-2 border-[#593A36]">
                     Architechture

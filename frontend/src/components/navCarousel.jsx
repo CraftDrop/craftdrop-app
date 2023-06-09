@@ -44,23 +44,6 @@ const NavCarousel = ({ label }) => {
             </a>
           </div>
         ))}
-        {/* {scrollPosition !== "start" && (
-          <div className="hidden sm:block cursor-pointer">
-            <GrPrevious
-              className="absolute left-0 bg-gray-400 bg-opacity-50 transform -translate-y-1/2 p-2 rounded-full shadow-md h-12 w-12 "
-              onClick={scrollToPrevious}
-            />
-          </div>
-        )}
-
-        {scrollPosition !== "end" && (
-          <div className="hidden sm:block cursor-pointer">
-            <GrNext
-              className="absolute right-0 bg-gray-400 bg-opacity-50 transform -translate-y-1/2 p-2 rounded-full shadow-md h-12 w-12 "
-              onClick={scrollToNext}
-            />
-          </div>
-        )} */}
       </div>
     </div>
   );

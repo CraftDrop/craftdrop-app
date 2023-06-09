@@ -3,27 +3,20 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import { ChakraProvider } from "@chakra-ui/react";
-
 import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/home";
-import Category, { loader as rootLoader } from "./pages/category";
-import FeatureCarousel from "./components/featureCarousel";
+import Category from "./pages/category";
+import Error from "./pages/error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <Error />,
   },
   {
     path: "/category",
     element: <Category />,
-    loader: rootLoader,
-    children: [
-      {
-        path: "/category/:category",
-        element: <FeatureCarousel />,
-      },
-    ],
   },
 ]);
 
