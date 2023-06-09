@@ -147,6 +147,7 @@ def artist_registration_api(request):
         return Response({'message':'failed'}, status=400)
     return JsonResponse({'message': 'success', 'user': user.username})
 
+
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
