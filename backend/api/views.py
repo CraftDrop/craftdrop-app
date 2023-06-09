@@ -6,15 +6,18 @@ from myapp.forms import MyUserCreationForm
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import (UsersSerializers, 
+from .serializers import (UsersSerializers,
+                          UserSerializers,
                           UserCreationSerializer, 
                           ArtistSerializers,
                           ArtistRegistrationSerializer, 
-                          RegistrationSerializer)
+                          RegistrationSerializer,
+                          ArtworkSerializer)
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from datetime import datetime, timedelta
 from .utils import generate_jwt_token, generate_access_token, generate_tokens
@@ -52,12 +55,22 @@ def api_home(request):
     """
     return HttpResponse(message)
 
+
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
 @api_view(['GET'])
-def UserApi(request, pk=None, *args, **kwargs):
+def UserApi(request):
+    # obj = User.objects.get(user_id = request.user.)
+    obj = request.user
+    data = UserSerializers(obj).data
+    data['password'] = '******'
+    return Response(data)
+
+@api_view(['GET'])
+def UsersApi(request, pk=None, *args, **kwargs):
     if pk == None:
         obj = User.objects.all()
         data = UsersSerializers(obj, many=True).data
-        # data['profile_picture'] = model.profile_picture.url if model.profile_picture else None
         return Response(data)
     pk = int(pk)
     obj = User.objects.get(user_id = pk)
@@ -84,11 +97,9 @@ def UserCreationApi(request):
     return Response({'status':'failed'})
 
 
-@api_view(['POST'])
-def testapi(request, *args, **kwargs):
-    return Response(request.data)
 
 @api_view(['POST'])
+@csrf_exempt
 def login_api(request):
     email = request.data.get('email')
     password = request.data.get('password')
@@ -97,10 +108,6 @@ def login_api(request):
 
     if user is None:
         return Response({'error':'Invalid email or password'}, status=400)
-    # refresh = RefreshToken.for_user(user)
-    # access_token = generate_access_token(user)
-
-    # return Response({'access_token': access_token})
     return Response(generate_tokens(user))
 
 @api_view(['POST'])
@@ -124,14 +131,6 @@ def registration_api(request):
     serializer = RegistrationSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     user = serializer.save()
-    
-    # Generate access and refresh tokens
-    # token_serializer = TokenObtainPairSerializer()
-    # tokens = token_serializer.get_token(user)
-    # access_token = str(tokens.access_token)
-    # refresh_token = str(tokens)
-
-    # Return the tokens
     return Response(generate_tokens(user))
 
 @api_view(['POST'])
@@ -147,3 +146,16 @@ def artist_registration_api(request):
     if artist is None:
         return Response({'message':'failed'}, status=400)
     return JsonResponse({'message': 'success', 'user': user.username})
+
+@api_view(['POST'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def artwork_listing_api(request):
+    if not hasattr(request.user, 'artist'):
+        return Response({'error': 'User must be an artist'})
+    serializer = ArtworkSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    artwork = serializer.save()
+    if artwork is None:
+        return Response({'message': 'failed'}, status=400)
+    return Response({'message':'success', 'artwork_id': artwork.artwork_id})

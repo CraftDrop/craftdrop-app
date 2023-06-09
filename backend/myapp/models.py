@@ -8,7 +8,7 @@ def profile_picture_path(instance, filename):
 
 def artwork_file_path(instance, filename):
     #Generate upload path for artworks
-    return os.path.join('artworks', f'artwork_{instance.user_id}', filename)
+    return os.path.join('artworks', f'artwork_{instance.artist_id}', filename)
 
 
 class User(AbstractUser):
@@ -21,6 +21,9 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
+    class Meta:
+        ordering = ['-date_joined']
+
     # @property
     # def id(self):
     #     return self.user_id
@@ -30,6 +33,8 @@ class Artists(models.Model):
     user_id = models.OneToOneField(User, on_delete=models.CASCADE, related_name='artist')
     location = models.CharField(max_length=45)
     style = models.CharField(max_length=45)
+    class Meta:
+        ordering = ['-artist_id']
 
 
     @property
@@ -66,7 +71,10 @@ class Artwork(models.Model):
     width = models.DecimalField(max_digits = 8, decimal_places=2)
     depth = models.DecimalField(max_digits=8, decimal_places=2)
     date_created = models.DateTimeField(auto_now_add=True)
-    file = models.FileField(upload_to=artwork_file_path)
+    art_file = models.FileField(upload_to=artwork_file_path)
+
+    class Meta:
+        ordering = ['-date_created']
 
     def is_picture(self):
         #Checks if file is a picture
