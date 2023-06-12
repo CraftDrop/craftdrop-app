@@ -1,2 +1,4 @@
 jwt_secret.txt
 *.pyc
+db.sqlite3
+__pycache__

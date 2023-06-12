@@ -78,12 +78,12 @@ class Artwork(models.Model):
 
     def is_picture(self):
         #Checks if file is a picture
-        return self.filename.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))
+        return self.art_file.name.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))
     
 
     def is_video(self):
         #Checks if file is a video
-        return self.filename.lower().endswith(('.mp4', '.avi', '.mov'))
+        return self.art_file.name.lower().endswith(('.mp4', '.avi', '.mov'))
     
     def __str__(self):
         return f'artist_id:{self.artist_id}, artwork_id:{self.artwork_id}'

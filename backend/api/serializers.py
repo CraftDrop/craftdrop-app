@@ -11,6 +11,7 @@ class ArtworkSerializer(serializers.ModelSerializer):
     art_file = serializers.FileField(allow_empty_file=False)
     class Meta:
         model = Artwork
+        # fields = '__all__'
         fields = ['title', 
                   'description', 
                   'price', 
@@ -44,7 +45,7 @@ class AddressSerializers(serializers.ModelSerializer):
 
 
 class UsersSerializers(serializers.ModelSerializer):
-    address = AddressSerializers()
+    # address = AddressSerializers()
     artist = ArtistSerializers()
     class Meta:
         model = User
@@ -52,15 +53,14 @@ class UsersSerializers(serializers.ModelSerializer):
             'user_id',
             'username',
             'full_name',
-            'email',
             'profile_picture',
-            'address',
             'artist'
 
         ]
 
 class UserSerializers(serializers.ModelSerializer):
     address = AddressSerializers()
+    artist = ArtistSerializers()
     class Meta:
         model = User
         fields = '__all__'
@@ -92,7 +92,12 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['email', 'password', 'full_name', 'username', 'bio', 'profile_picture']
+        fields = ['email', 
+                  'password', 
+                  'full_name', 
+                  'username', 
+                  'bio', 
+                  'profile_picture']
 
     def create(self, validated_data):
         password = validated_data.pop('password')
@@ -112,3 +117,14 @@ class ArtistRegistrationSerializer(serializers.ModelSerializer):
         artist.save()
         return artist
     
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    profile_picture = serializers.ImageField(allow_null=True)
+    class Meta:
+        model = User
+        fields = ['full_name', 'username', 'email', 'bio', 'profile_picture']
+
+class ViewArtworkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Artwork
+        fields = '__all__'

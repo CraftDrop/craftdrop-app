@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
-from django.contrib.auth import authenticate,login, logout
-from myapp.models import User, Artists
-from myapp.forms import MyUserCreationForm
+from django.contrib.auth import authenticate
+from myapp.models import User, Artists, Artwork
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.db.models import Q
 from rest_framework import status
 from .serializers import (UsersSerializers,
                           UserSerializers,
@@ -12,7 +12,9 @@ from .serializers import (UsersSerializers,
                           ArtistSerializers,
                           ArtistRegistrationSerializer, 
                           RegistrationSerializer,
-                          ArtworkSerializer)
+                          ArtworkSerializer,
+                          UserProfileSerializer,
+                          ViewArtworkSerializer)
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -27,33 +29,7 @@ from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET'])
 def api_home(request):
-    # print(request.GET)
-    # print(request.POST)
-    message = """
-                <h1> Craftdrop.io API endpoints </h1>
-                <hr>
-                <p> GET /api/  => displays the list of available API endpoints and request methods allowed </p>
-
-                <p> GET /api/user/ => fetches the user info [uses token authentication] </p>
-
-                <p> GET /api/users/ => fetches users info [info is limited] </p>
-
-                <p> GET /api/artist/ => Returns all artists available </p>
-
-                <p> POST /api/register/ => registers user and returns access and refresh_tokens in json format </p>
-
-                <p> POST /api/token/ => generates new jwt tokens [reqires login credentials] </p>
-
-                <p> POST /api/token/refresh/ => refreshes access token [requires the user valid refresh token] </p>
-
-                <p> POST /api/create_artist/ => creates an artist [requires user to be logged in = needs access token for validation] </P>
-
-                <p> POST /api/logout/ => logs user out [requires the refresh token]
-
-
-
-    """
-    return HttpResponse(message)
+    return render(request, 'myapp/api.html')
 
 
 @authentication_classes([JWTAuthentication])
@@ -62,6 +38,8 @@ def api_home(request):
 def UserApi(request):
     # obj = User.objects.get(user_id = request.user.)
     obj = request.user
+    if not obj.is_authenticated:
+        return Response({'Forbidden': 'Needs to login to gain access'}, status=403)
     data = UserSerializers(obj).data
     data['password'] = '******'
     return Response(data)
@@ -74,14 +52,22 @@ def UsersApi(request, pk=None, *args, **kwargs):
         return Response(data)
     pk = int(pk)
     obj = User.objects.get(user_id = pk)
+    if obj is None:
+        return Response({'message': 'User does not exist!'})
     data = UsersSerializers(obj).data
     return Response(data)
 
 @api_view(['GET'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
 def ArtistApi(request, pk=None, *args, **kwargs):
     if pk == None:
         obj = Artists.objects.all()
         data = ArtistSerializers(obj, many=True).data
+        return Response(data)
+    else:
+        obj = Artists.objects.get(artist_id = pk)
+        data = ArtistSerializers(obj).data
         return Response(data)
 
 @api_view(['POST'])
@@ -99,7 +85,7 @@ def UserCreationApi(request):
 
 
 @api_view(['POST'])
-@csrf_exempt
+@authentication_classes([JWTAuthentication])
 def login_api(request):
     email = request.data.get('email')
     password = request.data.get('password')
@@ -126,20 +112,30 @@ def logout_api(request):
     return Response({"message": "Logout successful"}, status=200)
 
 
-@api_view(['POST'])
+@api_view(['POST', 'PUT'])
 def registration_api(request):
     serializer = RegistrationSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     user = serializer.save()
     return Response(generate_tokens(user))
 
+@api_view(['PUT'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def user_update(request):
+    user = request.user
+    serializer = UserSerializers(user, data=request.data, partial=True)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save()
+        return Response({'message': 'Profile updated successfully'})
+    else:
+        return Response(serializer.errors, status=400)
+
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
 def artist_registration_api(request):
     user = request.user
-    print(f'user_d = {user.user_id}')
-    user_id = request.user.user_id
     serializer = ArtistRegistrationSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     artist = serializer.save()
@@ -153,10 +149,57 @@ def artist_registration_api(request):
 @permission_classes([IsAuthenticated])
 def artwork_listing_api(request):
     if not hasattr(request.user, 'artist'):
-        return Response({'error': 'User must be an artist'})
+        return Response({'message': 'User must be an artist'})
     serializer = ArtworkSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
+    serializer.validated_data['artist_id'] = request.user.artist
     artwork = serializer.save()
     if artwork is None:
         return Response({'message': 'failed'}, status=400)
     return Response({'message':'success', 'artwork_id': artwork.artwork_id})
+
+@api_view(['DELETE'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def delete_user(request):
+    user = request.user
+    user.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET'])
+def view_artwork(request):
+    obj = Artwork.objects.all()
+    data = ViewArtworkSerializer(obj, many=True).data
+    return Response(data)
+
+@api_view(['DELETE'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def delist_artwork(request):
+    user = request.user
+    if hasattr(user, 'artist'):
+        artwork = user.artist.artworks.get(artwork_id = request.data.get('artwork_id'))
+        title = artwork.title
+        artwork.delete()
+        return Response({'message': f'{title} removed'}, status=status.HTTP_204_NO_CONTENT)
+    else:
+        return Response({'message': 'must be a registered artist'})
+    
+@api_view(['GET'])
+def search(request, *args, **kwargs):
+    q = request.GET.get('q')
+    if q is not None:
+        data = Artwork.objects.filter(
+            Q(title__icontains=q)|
+            Q(description__icontains=q)|
+            Q(artist_id__user_id__full_name__icontains=q)|
+            Q(medium__icontains=q)|
+            Q(artist_id__style__icontains=q)|
+            Q(artist_id__location__icontains=q)
+        )
+        serializer = ArtworkSerializer(data, many=True).data
+        return Response(serializer)
+    data = Artwork.objects.all()
+    data = ArtworkSerializer(data, many=True).data
+    return Response(data)
+    
