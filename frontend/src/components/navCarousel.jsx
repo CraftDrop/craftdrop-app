@@ -31,7 +31,8 @@ const NavCarousel = ({ label }) => {
       >
         {navItems.map((item) => (
           <div key={item.id} className="flex-grow-0 flex-shrink-0 pt-1">
-            <a href={`/category/${item}`}>
+            <Link href={`/category`}>
+              {/* <Link href={`/category/${item}`}> */}
               <button
                 name={item}
                 onClick={() => handleSelect(item)}
@@ -41,7 +42,7 @@ const NavCarousel = ({ label }) => {
               >
                 <span>{item}</span>
               </button>
-            </a>
+            </Link>
           </div>
         ))}
       </div>
