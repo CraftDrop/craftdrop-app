@@ -9,9 +9,9 @@ import artistsData from "../testData/artistsData.json";
 
 const Category = () => {
   const [active, setIsActive] = useState(false);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("portrait");
   const [sortedData, setSortedData] = useState([]);
-  const [sortGroup, setSortGroup] = useState("");
+  const [sortGroup, setSortGroup] = useState("subject");
 
   const handleSelect = (item, sortName) => {
     setSelected(item);
@@ -38,12 +38,17 @@ const Category = () => {
         selected={selected}
         sortGroup={sortGroup}
       />
-      <FeatureCarousel
-        label={selected.length === 2 ? selected + "% Off" : selected}
-        data={sortedData}
-      />
+      {selected.length > 0 &&
+        (sortedData.length > 0 ? (
+          <FeatureCarousel
+            label={selected.length === 2 ? selected + "% Off" : selected}
+            data={sortedData}
+          />
+        ) : (
+          <div className="font-semibold text-2xl italic">No Items Found</div>
+        ))}
 
-      {/* <FeatureCarousel label="Latest Additions" data={artData} />
+      <FeatureCarousel label="Latest Additions" data={artData} />
       <FeatureCarousel label="Popular" data={artData} />
       <Trending
         artData={artData}
@@ -58,7 +63,7 @@ const Category = () => {
       <FeatureCarousel label="AI / Digital" data={artData} />
       <FeatureCarousel label="Collage" data={artData} />
       <FeatureCarousel label="Photography" data={artData} />
-      <FeatureCarousel label="Printmaking" data={artData} /> */}
+      <FeatureCarousel label="Printmaking" data={artData} />
     </Layout>
   );
 };

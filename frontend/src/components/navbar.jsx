@@ -3,8 +3,12 @@ import Logo from "./logo";
 import { CiUser } from "react-icons/ci";
 import { RiMenu4Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
+  useEffect(() => {
+    console.log(user);
+  }, []);
   return (
     <div className="flex justify-between items-center p-4 bg-black w-full text-sm sm:text-base px-4 border-b-2 border-gray-600">
       <div className="sm:hidden">
@@ -208,10 +212,12 @@ const Navbar = () => {
         </Menu>
       </div>
 
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
 
       <div className=" text-white gap-4 hidden sm:flex items-center">
-        <Menu bg="black" _active={{ bg: "black" }}>
+        {/* <Menu bg="black" _active={{ bg: "black" }}>
           <MenuButton
             _active={{ bg: "black" }}
             _hover={{ bg: "black" }}
@@ -260,9 +266,8 @@ const Navbar = () => {
               </div>
             </Link>
           </MenuList>
-        </Menu>
-
-        <Menu>
+        </Menu> */}
+        {/* <Menu>
           <MenuButton
             _active={{ bg: "black" }}
             _hover={{ bg: "black" }}
@@ -271,7 +276,7 @@ const Navbar = () => {
           >
             <span className="text-white">Subject</span>
           </MenuButton>
-          <MenuList
+          {/* <MenuList
             className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
             bg=""
           >
@@ -321,9 +326,8 @@ const Navbar = () => {
               Geometric
             </div>
           </MenuList>
-        </Menu>
-
-        <Menu>
+        </Menu> */}
+        {/* <Menu>
           <MenuButton
             _active={{ bg: "black" }}
             _hover={{ bg: "black" }}
@@ -358,9 +362,8 @@ const Navbar = () => {
               Oceanic Art
             </div>
           </MenuList>
-        </Menu>
-
-        <Menu>
+        </Menu> */}
+        {/* <Menu>
           <MenuButton
             _active={{ bg: "black" }}
             _hover={{ bg: "black" }}
@@ -386,34 +389,62 @@ const Navbar = () => {
               50% Off
             </div>
           </MenuList>
-        </Menu>
-
-        <div className="font-semibold">About</div>
+        </Menu> */}
       </div>
+      {user && <div className="text-white"></div>}
+      <div className="flex gap-2 items-center">
+        {user && <div className="font-semibold">{user.full_name}</div>}
 
-      <Menu>
-        <MenuButton
-          _active={{ bg: "black" }}
-          _hover={{ bg: "black" }}
-          bg="black"
-          as={Button}
-        >
-          <div className="border rounded-full p-1 border-white text-white">
-            <CiUser className="w-6 h-6 font-light" />
-          </div>
-        </MenuButton>
-        <MenuList
-          className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
-          bg=""
-        >
-          <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
-            Log in
-          </div>
-          <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
-            Sign up
-          </div>
-        </MenuList>
-      </Menu>
+        <Menu>
+          <MenuButton
+            _active={{ bg: "black" }}
+            _hover={{ bg: "black" }}
+            bg="black"
+            as={Button}
+          >
+            <div className="border rounded-full p-1 border-white text-white">
+              <CiUser className="w-6 h-6 font-light" />
+            </div>
+          </MenuButton>
+          {!user && (
+            <MenuList
+              className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
+              bg=""
+            >
+              <Link to="/login">
+                <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                  Log in
+                </div>
+              </Link>
+
+              <Link to="/create-account">
+                <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                  Sign up
+                </div>
+              </Link>
+            </MenuList>
+          )}
+
+          {user && (
+            <MenuList
+              className="flex flex-col gap-4 items-start px-2 bg-black bg-opacity-75"
+              bg=""
+            >
+              <Link to="/logout">
+                <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                  Log out
+                </div>
+              </Link>
+
+              <Link to="/account">
+                <div className="rounded-xl hover:bg-[#593A36] hover:border border-white px-2 transition ease-in-out delay-100">
+                  Account settings
+                </div>
+              </Link>
+            </MenuList>
+          )}
+        </Menu>
+      </div>
     </div>
   );
 };

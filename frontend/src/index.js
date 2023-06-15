@@ -7,6 +7,9 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/home";
 import Category from "./pages/category";
 import Error from "./pages/error";
+import Login from "./pages/login";
+import SignUp from "./pages/signUp";
+import Logout from "./pages/logout";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +20,18 @@ const router = createBrowserRouter([
   {
     path: "/category",
     element: <Category />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/logout",
+    element: <Logout />,
+  },
+  {
+    path: "/create-account",
+    element: <SignUp />,
   },
 ]);
 
