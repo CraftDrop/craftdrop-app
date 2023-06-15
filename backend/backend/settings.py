@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 # from rest_framework.authentication import SessionAuthentication
 # from rest_framework.permissions import IsAuthenticated
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-mffjhofyctf$r!+6z1qj8r88_!6niuv@_9he&fex_!lv6wg-&_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lucasbolt.pythonanywhere.com']
+ALLOWED_HOSTS = ['lucasbolt.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -151,6 +152,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
