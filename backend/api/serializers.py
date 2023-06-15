@@ -2,7 +2,8 @@ from rest_framework import serializers
 from myapp.models import (User, 
                           Artists, 
                           Address,
-                          Artwork)
+                          Artwork,
+                          Order)
 from rest_framework_simplejwt.tokens import RefreshToken
 
 
@@ -88,7 +89,7 @@ class UserCreationSerializer(serializers.ModelSerializer):
 
 class RegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
-    profile_picture = serializers.ImageField(allow_null=True)
+    profile_picture = serializers.ImageField(allow_null=True, required=False)
 
     class Meta:
         model = User
@@ -96,7 +97,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
                   'password', 
                   'full_name', 
                   'username', 
-                  'bio', 
+                  'bio',
                   'profile_picture']
 
     def create(self, validated_data):
@@ -128,3 +129,9 @@ class ViewArtworkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artwork
         fields = '__all__'
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ['order_id', 'user_id', 'artwork_id', 'total_price', 'date_ordered', 'quantity']
+        read_only_fields = ['order_id', 'user_id', 'total_price', 'date_ordered']

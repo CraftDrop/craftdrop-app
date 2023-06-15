@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import authenticate
-from myapp.models import User, Artists, Artwork
+from myapp.models import User, Artists, Artwork, Order
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.db.models import Q
@@ -14,7 +14,8 @@ from .serializers import (UsersSerializers,
                           RegistrationSerializer,
                           ArtworkSerializer,
                           UserProfileSerializer,
-                          ViewArtworkSerializer)
+                          ViewArtworkSerializer,
+                          OrderSerializer)
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -203,3 +204,27 @@ def search(request, *args, **kwargs):
     data = ArtworkSerializer(data, many=True).data
     return Response(data)
     
+
+
+# class OrderListCreateAPIView(APIView):
+#     permission_classes = [IsAuthenticated]
+#     authentication_classes = [JWTAuthentication]4
+@api_view(['GET', 'POST'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def orders(self, request):
+    if request.method == 'GET':
+        orders = Order.objects.filter(user_id=request.user)
+        serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data)
+
+    serializer = OrderSerializer(data=request.data)
+    if serializer.is_valid():
+        quantity = request.data.get('quantity', 1)
+        artwork_id = request.data['artwork_id']
+        price = Artwork.objects.get(artwork_id=artwork_id).price
+        if artwork_id:
+            serializer.save(user_id=request.user, total_price= price * quantity)
+            return Response(serializer.data, status=201)
+        return Response({'error': 'artwork_id is  required'}, status=400)
+    return Response(serializer.errors, status=400)

@@ -19,7 +19,8 @@ urlpatterns = [
     path('delete_user/', views.delete_user),
     path('artworks/', views.view_artwork),
     path('delist_artwork/', views.delist_artwork),
-    path('search', views.search)
+    path('search', views.search),
+    path('order/', views.orders)
 
 ]
 

@@ -93,7 +93,9 @@ class Order(models.Model):
     artwork_id = models.ForeignKey(Artwork, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     date_ordered = models.DateTimeField(auto_now_add=True)
-    status = None
+    total_price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.IntegerField(default=1)
+    status = models.CharField(max_length=20, default='None')
 
     def __str__(self):
         return f'user_id:{self.user_id}, order_id:{self.order_id}'
