@@ -107,7 +107,7 @@ const Login = () => {
             <ButtonPrimary label="Log In" />
             <div className="flex justify-between">
               <h1 className="text-left">Forgot Password?</h1>
-              <Link to="create-account">
+              <Link to="/create-account">
                 <h1 className="text-left">Sign Up</h1>
               </Link>
             </div>
