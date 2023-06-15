@@ -11,13 +11,22 @@ import CustomArtBanner from "../components/customArtBanner";
 import ArtCarousel from "../components/artCarousel";
 import FeatureCarousel from "../components/featureCarousel";
 import Layout from "../layout";
+import auth from "./services/authService";
 import NavCarousel from "../components/navCarousel";
 
 function Home() {
+  const [currentUser, setCurrentUser] = useState("");
+  useEffect(() => {
+    async function fetchCurrentUser() {
+      const user = await auth.getCurrentUser();
+      setCurrentUser(user);
+    }
+    fetchCurrentUser();
+  }, []);
   return (
     <Layout>
       <NavCarousel />
-      <Hero />
+      <Hero user={currentUser} />
       <Info />
       <FeatureCarousel label="Featured" data={artData} />
       <CustomArtBanner />
