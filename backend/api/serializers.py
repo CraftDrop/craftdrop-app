@@ -133,5 +133,11 @@ class ViewArtworkSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ['order_id', 'user_id', 'artwork_id', 'total_price', 'date_ordered', 'quantity']
-        read_only_fields = ['order_id', 'user_id', 'total_price', 'date_ordered']
+        fields = ['order_id', 
+                  'user_id', 
+                  'artwork_id', 
+                  'total_price', 
+                  'date_ordered', 
+                  'quantity',
+                  'status']
+        read_only_fields = ['order_id', 'user_id', 'total_price', 'date_ordered', 'status']

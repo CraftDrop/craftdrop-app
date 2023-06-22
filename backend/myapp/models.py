@@ -93,7 +93,7 @@ class Order(models.Model):
     artwork_id = models.ForeignKey(Artwork, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     date_ordered = models.DateTimeField(auto_now_add=True)
-    total_price = models.DecimalField(max_digits=10, decimal_places=2)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     quantity = models.IntegerField(default=1)
     status = models.CharField(max_length=20, default='None')
 

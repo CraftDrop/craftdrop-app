@@ -8,44 +8,65 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
 
         h1 {
             text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
         }
 
         code {
             background-color: #f0f0f0;
-            padding: 2px 6px;
+            padding: 4px 8px;
             font-family: Consolas, monospace;
+            font-size: 14px;
         }
 
         hr {
             margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ddd;
         }
 
         p {
-            margin-bottom: 10px;
+            margin: 0 0 10px;
+            line-height: 1.5;
+            color: #555;
         }
 
         .endpoint {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
         .endpoint code {
             display: block;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
         }
 
         .endpoint p {
-            margin: 5px 0;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
+<div class="container">
     <h1>Craftdrop.io API endpoints</h1>
     <div>
         <code>By Lucasbolt</code>
@@ -87,6 +108,11 @@
         </div>
 
         <div class="endpoint">
+            <code>GET /api/order/</code>
+            <p>Returns all user orders</p>
+        </div>
+
+        <div class="endpoint">
             <code>POST /api/register/</code>
             <p>Registers user and returns access and refresh tokens in JSON format</p>
         </div>
@@ -117,10 +143,14 @@
         </div>
 
         <div class="endpoint">
-            <code>POST /
-
-api/list_artwork</code>
+            <code>POST /api/list_artwork</code>
             <p>Art listing endpoint [requires authentication and must be an artist]</p>
+            <p>Pass artwork_id: {'artwork_id': int}</p>
+        </div>
+
+        <div class="endpoint">
+            <code>POST /api/order/</code>
+            <p>order creation endpoint [requires authentication]</p>
             <p>Pass artwork_id: {'artwork_id': int}</p>
         </div>
 
@@ -139,6 +169,13 @@ api/list_artwork</code>
             <p>Delist artwork [must be an artist and logged in]</p>
             <p>Pass artwork_id: {'artwork_id': int}</p>
         </div>
+
+        <div class="endpoint">
+            <code>DELETE /api/order/</code>
+            <p>remove an order from cart [must be logged in]</p>
+            <p>Pass order_id: {'order_id': int}</p>
+        </div>
     </div>
+</div>
 </body>
 </html>

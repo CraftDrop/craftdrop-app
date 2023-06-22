@@ -32,7 +32,7 @@ from rest_framework.permissions import IsAuthenticated
 def api_home(request):
     return render(request, 'myapp/api.html')
 
-
+# fetch user  info - user must be logged in
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
 @api_view(['GET'])
@@ -45,6 +45,7 @@ def UserApi(request):
     data['password'] = '******'
     return Response(data)
 
+# list users
 @api_view(['GET'])
 def UsersApi(request, pk=None, *args, **kwargs):
     if pk == None:
@@ -58,6 +59,8 @@ def UsersApi(request, pk=None, *args, **kwargs):
     data = UsersSerializers(obj).data
     return Response(data)
 
+
+# list/fetch artist(s)
 @api_view(['GET'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
@@ -71,20 +74,20 @@ def ArtistApi(request, pk=None, *args, **kwargs):
         data = ArtistSerializers(obj).data
         return Response(data)
 
-@api_view(['POST'])
-def UserCreationApi(request):
-    if request.method == 'POST':
-        serializer = UsersSerializers(data=request.POST)
-        if serializer.is_valid():
-            print('it is valid')
-            user = serializer.save()
-            return Response({'message':'Registered successfully', 
-                             'user_id':user.user_id}, 
-                             status=status.HTTP_201_CREATED)
-    return Response({'status':'failed'})
+# @api_view(['POST'])
+# def UserCreationApi(request):
+#     if request.method == 'POST':
+#         serializer = UsersSerializers(data=request.POST)
+#         if serializer.is_valid():
+#             print('it is valid')
+#             user = serializer.save()
+#             return Response({'message':'Registered successfully', 
+#                              'user_id':user.user_id}, 
+#                              status=status.HTTP_201_CREATED)
+#     return Response({'status':'failed'})
 
 
-
+# login
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
 def login_api(request):
@@ -97,6 +100,8 @@ def login_api(request):
         return Response({'error':'Invalid email or password'}, status=400)
     return Response(generate_tokens(user))
 
+
+# logs user out
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def logout_api(request):
@@ -113,13 +118,17 @@ def logout_api(request):
     return Response({"message": "Logout successful"}, status=200)
 
 
+# create a user account
 @api_view(['POST', 'PUT'])
 def registration_api(request):
     serializer = RegistrationSerializer(data=request.data)
-    serializer.is_valid(raise_exception=True)
-    user = serializer.save()
-    return Response(generate_tokens(user))
+    if serializer.is_valid(raise_exception=True):
+        user = serializer.save()
+        return Response(generate_tokens(user))
+    return Response(serializer.errors, status=400)
 
+
+# update user profile
 @api_view(['PUT'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
@@ -132,6 +141,8 @@ def user_update(request):
     else:
         return Response(serializer.errors, status=400)
 
+
+# register as an artist - must be a registered user and logged in first.
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
@@ -145,6 +156,7 @@ def artist_registration_api(request):
     return JsonResponse({'message': 'success', 'user': user.username})
 
 
+# list artworks - must be and artist and must be logged in
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
@@ -159,6 +171,8 @@ def artwork_listing_api(request):
         return Response({'message': 'failed'}, status=400)
     return Response({'message':'success', 'artwork_id': artwork.artwork_id})
 
+
+# delete user account
 @api_view(['DELETE'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
@@ -167,12 +181,15 @@ def delete_user(request):
     user.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
+# view artworks
 @api_view(['GET'])
 def view_artwork(request):
     obj = Artwork.objects.all()
     data = ViewArtworkSerializer(obj, many=True).data
     return Response(data)
 
+
+# delist artworks
 @api_view(['DELETE'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
@@ -186,6 +203,7 @@ def delist_artwork(request):
     else:
         return Response({'message': 'must be a registered artist'})
     
+# Search artworks
 @api_view(['GET'])
 def search(request, *args, **kwargs):
     q = request.GET.get('q')
@@ -205,26 +223,37 @@ def search(request, *args, **kwargs):
     return Response(data)
     
 
-
-# class OrderListCreateAPIView(APIView):
-#     permission_classes = [IsAuthenticated]
-#     authentication_classes = [JWTAuthentication]4
-@api_view(['GET', 'POST'])
+# Order management
+@api_view(['GET', 'POST', 'DELETE'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
-def orders(self, request):
+def orders(request):
     if request.method == 'GET':
         orders = Order.objects.filter(user_id=request.user)
         serializer = OrderSerializer(orders, many=True)
         return Response(serializer.data)
-
-    serializer = OrderSerializer(data=request.data)
-    if serializer.is_valid():
-        quantity = request.data.get('quantity', 1)
-        artwork_id = request.data['artwork_id']
-        price = Artwork.objects.get(artwork_id=artwork_id).price
-        if artwork_id:
-            serializer.save(user_id=request.user, total_price= price * quantity)
-            return Response(serializer.data, status=201)
-        return Response({'error': 'artwork_id is  required'}, status=400)
-    return Response(serializer.errors, status=400)
+    
+    elif request.method == 'POST':
+        serializer = OrderSerializer(data=request.data)
+        if serializer.is_valid():
+            quantity = request.data.get('quantity', 1)
+            artwork_id = request.data['artwork_id']
+            price = Artwork.objects.get(artwork_id=artwork_id).price
+            if artwork_id:
+                serializer.save(user_id=request.user, total_price= price * quantity, status='processing')
+                return Response(serializer.data, status=201)
+            return Response({'error': 'artwork_id is  required'}, status=400)
+        return Response(serializer.errors, status=400)
+    
+    elif request.method == 'DELETE':
+        orders = Order.objects.filter(user_id = request.user)
+        if orders:
+            o_id = request.data.get('order_id')
+            order = orders.get(order_id = o_id)
+            if order:
+                order.delete()
+                return Response(status=status.HTTP_204_NO_CONTENT)
+            return Response({'message': 'Invalid order ID'}, status=400)
+        return Response({'error': 'user has no orders'}, status=400)
+    else:
+        return Response({'message': 'method not supported'}, status=500)
