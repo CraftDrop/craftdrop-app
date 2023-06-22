@@ -24,8 +24,8 @@ def generate_tokens(user):
     refresh_token = RefreshToken.for_user(user)
 
     # Set the token expiration time
-    access_token.set_exp(lifetime=timedelta(minutes=15))
-    refresh_token.set_exp(lifetime=timedelta(days=30))
+    access_token.set_exp(lifetime=timedelta(days=1))
+    refresh_token.set_exp(lifetime=timedelta(days=7))
 
     return {
         'access_token': str(access_token),

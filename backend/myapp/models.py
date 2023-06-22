@@ -78,12 +78,12 @@ class Artwork(models.Model):
 
     def is_picture(self):
         #Checks if file is a picture
-        return self.filename.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))
+        return self.art_file.name.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))
     
 
     def is_video(self):
         #Checks if file is a video
-        return self.filename.lower().endswith(('.mp4', '.avi', '.mov'))
+        return self.art_file.name.lower().endswith(('.mp4', '.avi', '.mov'))
     
     def __str__(self):
         return f'artist_id:{self.artist_id}, artwork_id:{self.artwork_id}'
@@ -93,7 +93,9 @@ class Order(models.Model):
     artwork_id = models.ForeignKey(Artwork, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     date_ordered = models.DateTimeField(auto_now_add=True)
-    status = None
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    quantity = models.IntegerField(default=1)
+    status = models.CharField(max_length=20, default='None')
 
     def __str__(self):
         return f'user_id:{self.user_id}, order_id:{self.order_id}'

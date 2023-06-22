@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraftDrop APIs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 4px 8px;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        p {
+            margin: 0 0 10px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .endpoint {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .endpoint code {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .endpoint p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Craftdrop.io API endpoints</h1>
+    <div>
+        <code>By Lucasbolt</code>
+        <hr>
+        <div class="endpoint">
+            <code>GET /api/</code>
+            <p>Displays the list of available API endpoints and request methods allowed</p>
+        </div>
+
+        <div class="endpoint">
+            <code>GET /api/user/</code>
+            <p>Fetches the user info [uses token authentication]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>GET /api/users/</code>
+            <p>Fetches users info [info is limited]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>GET /api/users/&lt;int:pk&gt;/</code>
+            <p>Fetches user info [info is limited]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>GET /api/artist/</code>
+            <p>Returns all artists available</p>
+        </div>
+
+        <div class="endpoint">
+            <code>GET /api/artworks/</code>
+            <p>Returns all artworks</p>
+        </div>
+
+        <div class="endpoint">
+            <code>GET /api/search?q</code>
+            <p>Returns the search results [artworks can be searched using title,
+                 description, or artist's name]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>GET /api/order/</code>
+            <p>Returns all user orders</p>
+        </div>
+
+        <div class="endpoint">
+            <code>POST /api/register/</code>
+            <p>Registers user and returns access and refresh tokens in JSON format</p>
+        </div>
+
+        <div class="endpoint">
+            <code>POST /api/token/</code>
+            <p>Generates new JWT tokens [requires login credentials]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>POST /api/token/refresh/</code>
+            <p>Refreshes access token [requires the user's valid refresh token]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>POST /api/create_artist/</code>
+            <p>Creates an artist [requires the user to be logged in - needs access token for validation]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>POST /api/logout/</code>
+            <p>Logs the user out [requires the refresh token]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>POST /api/login/</code>
+            <p>Logs the user in [requires the refresh token]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>POST /api/list_artwork</code>
+            <p>Art listing endpoint [requires authentication and must be an artist]</p>
+            <p>Pass artwork_id: {'artwork_id': int}</p>
+        </div>
+
+        <div class="endpoint">
+            <code>POST /api/order/</code>
+            <p>order creation endpoint [requires authentication]</p>
+            <p>Pass artwork_id: {'artwork_id': int}</p>
+        </div>
+
+        <div class="endpoint">
+            <code>PUT /api/update_profile/</code>
+            <p>Updates a user profile [requires authentication]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>DELETE /api/delete_user/</code>
+            <p>Delete user account [user must be logged in]</p>
+        </div>
+
+        <div class="endpoint">
+            <code>DELETE /api/delist_artwork/</code>
+            <p>Delist artwork [must be an artist and logged in]</p>
+            <p>Pass artwork_id: {'artwork_id': int}</p>
+        </div>
+
+        <div class="endpoint">
+            <code>DELETE /api/order/</code>
+            <p>remove an order from cart [must be logged in]</p>
+            <p>Pass order_id: {'order_id': int}</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
